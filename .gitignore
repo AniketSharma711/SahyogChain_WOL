@@ -8,6 +8,7 @@ __pycache__/
 *.pyd
 
 # Testing & Jupyter
+tests/
 .pytest_cache/
 .ipynb_checkpoints/
 
