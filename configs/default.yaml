@@ -1,0 +1,110 @@
+# Base configuration for the simulated company.
+#
+# Small FMCG-style distributor: 3 regional warehouses, 3 products, one contract
+# manufacturer upstream. Numbers are made up but I tried to keep the ratios
+# believable (margins, freight vs. price, truck costs etc). Scenario files in
+# configs/scenarios/ only override the keys they need.
+#
+# Index convention: warehouse w serves region w as its "home" region.
+
+horizon: 60                              # days per episode
+
+warehouses:
+  names: [North, Central, South]
+  capacity: [1000, 1500, 900]            # storage space in volume units
+  holding_multiplier: [1.0, 0.85, 1.15]  # rent differs by location
+  lead_time: [2, 3, 4]                   # supplier -> warehouse in days (standard truck)
+  expedited_lead_time: [1, 1, 2]         # same lane with expedited freight
+  inbound_distance_km: [250, 500, 800]
+  initial_cover_days: 4                  # starting stock = 4 days of local base demand
+
+products:
+  names: [fresh_milk, cereal, blender]
+  price: [12.0, 20.0, 150.0]
+  unit_cost: [6.0, 11.0, 90.0]
+  shelf_life: [12, 45, null]             # days from production, null = never expires
+  volume: [1.0, 1.0, 4.0]                # space per unit (storage and truck loading)
+  holding_cost: [0.06, 0.04, 0.25]       # $/unit/day before the warehouse multiplier
+  order_lot: [40, 25, 5]                 # replenishment order granularity
+  transfer_lot: [40, 25, 5]              # units moved by one transfer action
+  freight_per_100km: [0.10, 0.08, 0.40]  # inbound freight, $/unit per 100 km
+  demand_scale: [120, 75, 13]            # ONLY used to normalise observations, keep fixed across scenarios
+
+demand:
+  base:                                  # mean units/day, rows = regions, cols = products
+    - [40, 25, 4]
+    - [50, 30, 6]
+    - [30, 20, 3]
+  mean_order_size: [4.0, 3.0, 1.3]       # units per customer order (order size = 1 + Poisson)
+  weekly_amplitude: 0.15                 # +-15% day-of-week pattern
+  high_priority_prob: 0.25
+  forecast_noise: 0.10                   # std of the multiplicative forecast error
+  forecast_window: 7                     # forecast = avg expected demand over next 7 days
+
+service:
+  due_days_high: 1                       # promised delivery, days after the order is placed
+  due_days_standard: 3
+  patience: 4                            # customer cancels if not shipped by due + patience
+
+supplier:
+  capacity: [110, 70, 12]                # units/day on a single shift (less than avg demand on purpose)
+  level_multiplier: [0.0, 1.0, 1.6]      # off / single shift / double shift
+  shift_cost:                            # $/day per product line for each level
+    - [0, 150, 330]
+    - [0, 110, 240]
+    - [0, 130, 290]
+  max_backlog_days: 6                    # supplier won't accept more than 6 days of single-shift output
+  expedite_freight_multiplier: 3.0
+
+logistics:
+  distance_km:                           # warehouse (rows) -> region (cols), also used for transfers
+    - [50, 300, 620]
+    - [300, 60, 330]
+    - [620, 330, 70]
+  truck:                                 # contracted truck fleet = "standard" carrier
+    capacity: 160                        # volume units per truck
+    base_fee: 35.0
+    cost_per_km: 1.0                     # full trip cost = base_fee + cost_per_km * km
+    ltl_premium: 1.5                     # a part load pays 1.5x its share of a trip...
+    ltl_min_fraction: 0.25               # ...but at least 25% of a trip
+    km_per_day: 250
+    co2_kg_per_km: 0.9
+    fuel_l_per_km: 0.32
+  express:                               # 3rd party parcel service, priced per unit, not affected by trucking delays
+    fee_per_unit: 1.0
+    cost_per_unit_km: 0.004              # per volume unit
+    km_per_day: 500
+    co2_kg_per_unit_km: 0.0012
+  handling_per_unit: 0.10
+  transfer_cost_per_unit_km: 0.0015      # per volume unit, warehouse -> warehouse
+  packaging_kg_per_shipment: 0.3
+
+costs:
+  overflow_per_unit: 1.0                 # $/volume unit/day above capacity (rented overflow space)
+  disposal_per_unit: 0.30                # $ to get rid of an expired or damaged unit
+
+finance:
+  initial_cash: 40000
+  credit_limit: 25000                    # company is insolvent once cash < -credit_limit
+
+reward:
+  scale: 1000.0                          # reward = dollars / scale
+  late_penalty: 0.05                     # fraction of price, per unit per day late
+  high_priority_late_mult: 3.0           # high priority customers are 3x more annoyed
+  lost_sale_penalty: 0.5                 # goodwill cost per cancelled unit, fraction of price
+  termination_penalty_per_day: 8000      # $ per remaining day if the episode ends early (bankrupt / collapse)
+
+termination:
+  collapse_window: 14                    # "inventory collapse" = >=90% of demand lost over the last 14 days
+  collapse_lost_ratio: 0.9
+
+metrics:
+  overstock_days: 15                     # a warehouse-product is overstocked above 15 days of cover
+
+events:                                  # background noise, present in every scenario
+  supplier_delay_prob: 0.03              # per day: today's supplier shipments leave 1-3 days late
+  damage_prob: 0.02                      # per warehouse-day: 10-30% of arriving supplier goods damaged
+  demand_spike_prob: 0.01                # per region-day: un-forecast spike x1.5-2.5 for 1-3 days
+  outage_prob: 0.003                     # per warehouse-day: 1-2 day outage
+  strike_prob: 0.005                     # per day: trucks +1 day for 2-4 days
+  scheduled: []                          # the big scenario events go here, see configs/scenarios/

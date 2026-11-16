@@ -1,0 +1,36 @@
+{
+  "agents": [
+    "random",
+    "rule_based",
+    "fcfs",
+    "greedy",
+    "forecast",
+    "ppo_s0",
+    "ppo_s1",
+    "ppo_s2",
+    "a2c"
+  ],
+  "rl_runs": {
+    "ppo_s0": "runs/ppo_seed0",
+    "ppo_s1": "runs/ppo_seed1",
+    "ppo_s2": "runs/ppo_seed2",
+    "a2c": "runs/a2c_seed0"
+  },
+  "checkpoint": "best",
+  "scenarios": [
+    "normal",
+    "peak_season",
+    "supply_shortage",
+    "transport_disruption",
+    "warehouse_failure",
+    "multi_warehouse",
+    "compound_crisis"
+  ],
+  "episodes": 30,
+  "seeds": [
+    10000,
+    10029
+  ],
+  "python": "3.11.9",
+  "minutes": 8.82
+}

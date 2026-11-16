@@ -1,0 +1,33 @@
+# Python & Virtual Environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Testing & Jupyter
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE / Assistant artifacts
+.claude/
+.vscode/
+.idea/
+
+# Large training / evaluation outputs
+runs/*/tb/
+runs/*/final_model.zip
+runs/*/final_vecnormalize.pkl
+runs/*.log
+results/_*/
+results/*/trajectories/
+
+# Scratch & Temporary files
+*.txt_dump
+report_dump.txt
+paragraphs_map.txt
+*_backup.docx
+test_*.docx
+scripts/verify.py

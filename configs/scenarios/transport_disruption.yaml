@@ -1,0 +1,7 @@
+# Road closures + fuel price spike: trucks take 2 extra days and cost 40% more for
+# two weeks. In the middle of it the parcel carrier goes on strike (no express).
+events:
+  strike_prob: 0.02
+  scheduled:
+    - {type: transport, start: 20, end: 32, extra_days: 2, cost_multiplier: 1.4}
+    - {type: transport, start: 24, end: 27, express_available: false}

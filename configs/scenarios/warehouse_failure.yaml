@@ -1,0 +1,6 @@
+# The Central warehouse (the biggest one) is shut for 13 days, e.g. after a fire.
+# Its customers have to be served from North and South, deliveries to it pile up
+# in front of the gate until it reopens.
+events:
+  scheduled:
+    - {type: warehouse_outage, start: 18, end: 30, warehouse: 1}

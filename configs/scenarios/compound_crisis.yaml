@@ -1,0 +1,13 @@
+# HELD-OUT scenario, never used for training. A bad quarter where several things go
+# wrong at once, on top of noisier background events.
+events:
+  supplier_delay_prob: 0.06
+  damage_prob: 0.04
+  demand_spike_prob: 0.02
+  outage_prob: 0.006
+  strike_prob: 0.01
+  scheduled:
+    - {type: demand_curve, knots: [[0, 1.0], [10, 1.0], [25, 1.4], [45, 1.4], [55, 1.0]]}
+    - {type: supplier, start: 22, end: 34, capacity_factor: 0.6, extra_delay: 1}
+    - {type: warehouse_outage, start: 30, end: 36, warehouse: 0}
+    - {type: transport, start: 40, end: 47, extra_days: 1, cost_multiplier: 1.3}

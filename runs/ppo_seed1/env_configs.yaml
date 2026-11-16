@@ -1,0 +1,1039 @@
+multi_warehouse:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 55
+      - 32
+      - 6
+    - - 25
+      - 15
+      - 3
+    - - 45
+      - 28
+      - 4
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled: []
+    strike_prob: 0.005
+    supplier_delay_prob: 0.03
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: multi_warehouse
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 700
+    - 2400
+    - 650
+    expedited_lead_time:
+    - 2
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.6
+    - 0.6
+    - 1.5
+    inbound_distance_km:
+    - 600
+    - 200
+    - 900
+    initial_cover_days: 4
+    lead_time:
+    - 3
+    - 2
+    - 5
+    names:
+    - North
+    - Central
+    - South
+normal:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 40
+      - 25
+      - 4
+    - - 50
+      - 30
+      - 6
+    - - 30
+      - 20
+      - 3
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled: []
+    strike_prob: 0.005
+    supplier_delay_prob: 0.03
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: normal
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 1000
+    - 1500
+    - 900
+    expedited_lead_time:
+    - 1
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.0
+    - 0.85
+    - 1.15
+    inbound_distance_km:
+    - 250
+    - 500
+    - 800
+    initial_cover_days: 4
+    lead_time:
+    - 2
+    - 3
+    - 4
+    names:
+    - North
+    - Central
+    - South
+peak_season:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 40
+      - 25
+      - 4
+    - - 50
+      - 30
+      - 6
+    - - 30
+      - 20
+      - 3
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled:
+    - knots:
+      - - 0
+        - 1.0
+      - - 20
+        - 1.0
+      - - 34
+        - 1.8
+      - - 46
+        - 1.8
+      - - 52
+        - 1.1
+      - - 59
+        - 1.1
+      type: demand_curve
+    - end: 39
+      multiplier: 2.0
+      start: 38
+      type: demand
+    - end: 32
+      forecastable: false
+      multiplier: 1.5
+      regions:
+      - 2
+      start: 30
+      type: demand
+    strike_prob: 0.005
+    supplier_delay_prob: 0.03
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: peak_season
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 1000
+    - 1500
+    - 900
+    expedited_lead_time:
+    - 1
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.0
+    - 0.85
+    - 1.15
+    inbound_distance_km:
+    - 250
+    - 500
+    - 800
+    initial_cover_days: 4
+    lead_time:
+    - 2
+    - 3
+    - 4
+    names:
+    - North
+    - Central
+    - South
+supply_shortage:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 40
+      - 25
+      - 4
+    - - 50
+      - 30
+      - 6
+    - - 30
+      - 20
+      - 3
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled:
+    - capacity_factor: 0.4
+      end: 35
+      extra_delay: 2
+      start: 15
+      type: supplier
+    strike_prob: 0.005
+    supplier_delay_prob: 0.08
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: supply_shortage
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 1000
+    - 1500
+    - 900
+    expedited_lead_time:
+    - 1
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.0
+    - 0.85
+    - 1.15
+    inbound_distance_km:
+    - 250
+    - 500
+    - 800
+    initial_cover_days: 4
+    lead_time:
+    - 2
+    - 3
+    - 4
+    names:
+    - North
+    - Central
+    - South
+transport_disruption:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 40
+      - 25
+      - 4
+    - - 50
+      - 30
+      - 6
+    - - 30
+      - 20
+      - 3
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled:
+    - cost_multiplier: 1.4
+      end: 32
+      extra_days: 2
+      start: 20
+      type: transport
+    - end: 27
+      express_available: false
+      start: 24
+      type: transport
+    strike_prob: 0.02
+    supplier_delay_prob: 0.03
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: transport_disruption
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 1000
+    - 1500
+    - 900
+    expedited_lead_time:
+    - 1
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.0
+    - 0.85
+    - 1.15
+    inbound_distance_km:
+    - 250
+    - 500
+    - 800
+    initial_cover_days: 4
+    lead_time:
+    - 2
+    - 3
+    - 4
+    names:
+    - North
+    - Central
+    - South
+warehouse_failure:
+  costs:
+    disposal_per_unit: 0.3
+    overflow_per_unit: 1.0
+  demand:
+    base:
+    - - 40
+      - 25
+      - 4
+    - - 50
+      - 30
+      - 6
+    - - 30
+      - 20
+      - 3
+    forecast_noise: 0.1
+    forecast_window: 7
+    high_priority_prob: 0.25
+    mean_order_size:
+    - 4.0
+    - 3.0
+    - 1.3
+    weekly_amplitude: 0.15
+  events:
+    damage_prob: 0.02
+    demand_spike_prob: 0.01
+    outage_prob: 0.003
+    scheduled:
+    - end: 30
+      start: 18
+      type: warehouse_outage
+      warehouse: 1
+    strike_prob: 0.005
+    supplier_delay_prob: 0.03
+  finance:
+    credit_limit: 25000
+    initial_cash: 40000
+  horizon: 60
+  logistics:
+    distance_km:
+    - - 50
+      - 300
+      - 620
+    - - 300
+      - 60
+      - 330
+    - - 620
+      - 330
+      - 70
+    express:
+      co2_kg_per_unit_km: 0.0012
+      cost_per_unit_km: 0.004
+      fee_per_unit: 1.0
+      km_per_day: 500
+    handling_per_unit: 0.1
+    packaging_kg_per_shipment: 0.3
+    transfer_cost_per_unit_km: 0.0015
+    truck:
+      base_fee: 35.0
+      capacity: 160
+      co2_kg_per_km: 0.9
+      cost_per_km: 1.0
+      fuel_l_per_km: 0.32
+      km_per_day: 250
+      ltl_min_fraction: 0.25
+      ltl_premium: 1.5
+  metrics:
+    overstock_days: 15
+  products:
+    demand_scale:
+    - 120
+    - 75
+    - 13
+    freight_per_100km:
+    - 0.1
+    - 0.08
+    - 0.4
+    holding_cost:
+    - 0.06
+    - 0.04
+    - 0.25
+    names:
+    - fresh_milk
+    - cereal
+    - blender
+    order_lot:
+    - 40
+    - 25
+    - 5
+    price:
+    - 12.0
+    - 20.0
+    - 150.0
+    shelf_life:
+    - 12
+    - 45
+    - null
+    transfer_lot:
+    - 40
+    - 25
+    - 5
+    unit_cost:
+    - 6.0
+    - 11.0
+    - 90.0
+    volume:
+    - 1.0
+    - 1.0
+    - 4.0
+  reward:
+    high_priority_late_mult: 3.0
+    late_penalty: 0.05
+    lost_sale_penalty: 0.5
+    scale: 1000.0
+    termination_penalty_per_day: 8000
+  scenario: warehouse_failure
+  service:
+    due_days_high: 1
+    due_days_standard: 3
+    patience: 4
+  supplier:
+    capacity:
+    - 110
+    - 70
+    - 12
+    expedite_freight_multiplier: 3.0
+    level_multiplier:
+    - 0.0
+    - 1.0
+    - 1.6
+    max_backlog_days: 6
+    shift_cost:
+    - - 0
+      - 150
+      - 330
+    - - 0
+      - 110
+      - 240
+    - - 0
+      - 130
+      - 290
+  termination:
+    collapse_lost_ratio: 0.9
+    collapse_window: 14
+  warehouses:
+    capacity:
+    - 1000
+    - 1500
+    - 900
+    expedited_lead_time:
+    - 1
+    - 1
+    - 2
+    holding_multiplier:
+    - 1.0
+    - 0.85
+    - 1.15
+    inbound_distance_km:
+    - 250
+    - 500
+    - 800
+    initial_cover_days: 4
+    lead_time:
+    - 2
+    - 3
+    - 4
+    names:
+    - North
+    - Central
+    - South

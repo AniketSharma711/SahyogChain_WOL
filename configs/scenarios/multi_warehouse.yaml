@@ -1,0 +1,15 @@
+# Unbalanced network: Central is a big, cheap hub close to the supplier, but most of
+# the demand is in North and South, whose warehouses are small, expensive and far from
+# the supplier. Rewards using transfers / cross-shipping instead of local-only planning.
+# (Total demand per product is about the same as default, so demand_scale still fits.)
+warehouses:
+  capacity: [700, 2400, 650]
+  holding_multiplier: [1.6, 0.6, 1.5]
+  lead_time: [3, 2, 5]
+  expedited_lead_time: [2, 1, 2]
+  inbound_distance_km: [600, 200, 900]
+demand:
+  base:
+    - [55, 32, 6]
+    - [25, 15, 3]
+    - [45, 28, 4]

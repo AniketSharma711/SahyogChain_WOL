@@ -1,0 +1,10 @@
+# Holiday season. Demand ramps up from day 20 to +80%, Black Friday weekend doubles it
+# again on days 38-39, then things calm down. The season is planned, so it shows up in
+# the forecast - but at +80% the supplier can't keep up even on double shifts, so a good
+# planner has to build stock early (and warehouse space is limited).
+# There is also a surprise flash sale in the South that the forecast doesn't know about.
+events:
+  scheduled:
+    - {type: demand_curve, knots: [[0, 1.0], [20, 1.0], [34, 1.8], [46, 1.8], [52, 1.1], [59, 1.1]]}
+    - {type: demand, start: 38, end: 39, multiplier: 2.0}
+    - {type: demand, start: 30, end: 32, multiplier: 1.5, regions: [2], forecastable: false}

@@ -1,0 +1,38 @@
+algo: a2c
+total_timesteps: 3000000
+n_envs: 16
+seed: 0
+torch_threads: 4
+scenarios:
+- normal
+- peak_season
+- supply_shortage
+- transport_disruption
+- warehouse_failure
+- multi_warehouse
+vec_normalize:
+  norm_obs: true
+  norm_reward: true
+  clip_obs: 10.0
+policy_kwargs:
+  net_arch:
+    pi:
+    - 256
+    - 256
+    vf:
+    - 256
+    - 256
+linear_lr: true
+hyperparams:
+  learning_rate: 0.0003
+  n_steps: 16
+  gamma: 0.99
+  gae_lambda: 0.95
+  ent_coef: 0.003
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+validation:
+  every: 100000
+  seeds:
+  - 5000
+  - 5001

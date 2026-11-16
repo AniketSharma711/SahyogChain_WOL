@@ -1,0 +1,6 @@
+# Raw material shortage at the supplier: capacity drops to 40% for three weeks and
+# everything it ships leaves 2 days late. Supplier hiccups are also more common overall.
+events:
+  supplier_delay_prob: 0.08
+  scheduled:
+    - {type: supplier, start: 15, end: 35, capacity_factor: 0.4, extra_delay: 2}
