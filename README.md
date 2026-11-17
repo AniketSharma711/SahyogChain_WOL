@@ -1,9 +1,9 @@
 # SahyogChain-RL 
 > **Supply Chain Optimization for Rural Women Cooperatives in Jharkhand**  
 > *Summer Internship Project @ Winter of Life NGO | B.Tech AIDS (2025)*  
-> *Author: Aniket Sharma | Mentor: Mr. Santosh Kumar Sharma*
+> *Author: Aniket Sharma 
 
-A custom Gymnasium-based supply chain environment (`SupplyChain-v0`) and Reinforcement Learning (PPO) agent designed to solve real logistics problems faced by tribal women's Self-Help Groups (SHGs / Swayam Sahayata Samuh) in rural Jharkhand (Khunti, Ranchi, and Hazaribagh).
+A custom Gymnasium-based supply chain environment and Reinforcement Learning (PPO) agent designed to solve real logistics problems faced by tribal women's Self-Help Groups (SHGs / Swayam Sahayata Samuh) in rural Jharkhand (Khunti, Ranchi, and Hazaribagh).
 
 ---
 
