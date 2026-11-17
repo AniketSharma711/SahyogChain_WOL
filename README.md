@@ -101,7 +101,4 @@ I benchmarked PPO against 5 hand-written baseline heuristics across 210 test epi
 ---
 
 ### Notes / Bugs I had to fix during the project
-
-* **Windows Memory Crash:** Spawning 16 parallel env workers with PyTorch loaded in each crashed my laptop with `ArrayMemoryError` (~10 GB RAM). I wrote a custom torch-free worker (`rl/env_worker.py`) and set `OPENBLAS_NUM_THREADS=1`, which dropped memory to ~60 MB per worker.
 * **Agent Cheating with Cash Accounting:** At first, using cash accounting made the agent stop buying anything on day 58 to hoard cash at day 60. Switching to accrual accounting (charging goods only when sold or thrown away) fixed this.
-* **Full Report:** See `report/Summer_Training_Report_Aniket_Sharma.docx` for complete mathematical formulation, graphs, and NGO field notes.
