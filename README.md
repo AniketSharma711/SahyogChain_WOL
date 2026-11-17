@@ -1,4 +1,4 @@
-# SahyogChain-RL 🌾🚜
+# SahyogChain-RL 
 > **Supply Chain Optimization for Rural Women Cooperatives in Jharkhand**  
 > *Summer Internship Project @ Winter of Life NGO | B.Tech AIDS (2025)*  
 > *Author: Aniket Sharma | Mentor: Mr. Santosh Kumar Sharma*
